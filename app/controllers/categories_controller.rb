@@ -7,6 +7,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @post = category.posts.new
   end
 
   def new
@@ -41,11 +42,13 @@ class CategoriesController < ApplicationController
 
   private
 
-  def category_params
-    params.require(:category).permit(:name, :description)
-  end
-
   def category
     @category ||= params[:id] ? Category.find(params[:id]) : Category.new
+  end
+
+  helper_method :category
+
+  def category_params
+    params.require(:category).permit(:name, :description)
   end
 end

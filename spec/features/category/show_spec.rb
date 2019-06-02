@@ -8,7 +8,7 @@ feature 'any user can view category', %q{
 
   given(:category) { create(:category) }
 
-  scenario 'Any users can view question' do
+  scenario 'Any users can view post' do
     visit category_path(category)
 
     expect(page).to have_content category.name

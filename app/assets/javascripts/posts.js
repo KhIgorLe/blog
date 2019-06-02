@@ -1,0 +1,8 @@
+$(document).on('turbolinks:load', function () {
+  $('.posts').on('click', '.edit-post-link', function (e) {
+    e.preventDefault();
+    $(this).hide();
+    var postId = $(this).data('postId');
+    $('form#edit-post-' + postId).removeClass('hidden');
+  })
+});

@@ -1,0 +1,5 @@
+<% if post.errors.present? %>
+$('.post_errors').html('<%= render 'shared/errors', resource: post %>');
+<% else %>
+$('#post_'+ <%= post.id %>).replaceWith('<%= j render post %>');
+<% end %>

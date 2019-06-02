@@ -7,7 +7,7 @@ feature 'Any user can delete category', %q{
 
   given!(:categories) { create_list(:category, 3) }
 
-  scenario 'Question author can delete question' do
+  scenario 'can delete category' do
     category = categories[1]
     visit categories_path
 

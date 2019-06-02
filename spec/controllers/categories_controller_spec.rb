@@ -9,7 +9,7 @@ RSpec.describe CategoriesController, type: :controller do
 
     before { get :index }
 
-    it 'populated an array all questions' do
+    it 'populated an array all categories' do
       expect(assigns(:categories)).to match_array(categories)
     end
 
@@ -95,7 +95,7 @@ RSpec.describe CategoriesController, type: :controller do
       let(:category) { create(:category, name: 'My name.', description: 'MyDescription' )}
       before { patch :update, params: { id: category, category: attributes_for(:category, :invalid) } }
 
-      it 'not change question' do
+      it 'not change category' do
         category.reload
 
         expect(category.name).to eq 'My name.'
@@ -112,7 +112,7 @@ RSpec.describe CategoriesController, type: :controller do
     subject { delete :destroy, params: { id: category } }
 
     context 'login by owner user' do
-      it 'delete question' do
+      it 'delete category' do
         expect { subject }.to change(Category, :count).by(-1)
       end
 
