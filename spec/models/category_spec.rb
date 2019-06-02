@@ -4,7 +4,7 @@
 #
 #  id          :bigint(8)        not null, primary key
 #  name        :string           not null
-#  description :string           not null
+#  description :text             not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -22,5 +22,9 @@ RSpec.describe Category, type: :model do
     subject { category }
 
     it { should validate_uniqueness_of(:name) }
+  end
+
+  describe 'commentable' do
+    it_behaves_like 'has many comments'
   end
 end

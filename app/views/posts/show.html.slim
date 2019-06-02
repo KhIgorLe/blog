@@ -1,5 +1,16 @@
-h1 = "Post:"
-p
-  = "Name: #{post.name}"
-p
-  = "Content: #{post.content}"
+.post
+  h1 = "Post:"
+  p
+    = "Name: #{post.name}"
+  p
+    = "Content: #{post.content}"
+
+  .comment_errors
+    = render 'shared/errors', resource: @comment
+
+  .post-comments
+    | Comments:
+    = render post.comments
+    = render 'comments/form', commentable: post
+
+  = link_to 'Add comment', '#',class: 'button-post-comment', data: { post_id: post.id }
