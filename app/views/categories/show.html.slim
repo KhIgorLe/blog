@@ -1,8 +1,19 @@
-h1 = "Category:"
-p
-  = "Name: #{category.name}"
-p
-  = "Description: #{category.description}"
+.category
+  h1 = "Category:"
+  p
+    = "Name: #{category.name}"
+  p
+    = "Description: #{category.description}"
+
+  .comment_errors
+    = render 'shared/errors', resource: @comment
+
+  .category-comments
+    | Comments:
+    = render category.comments
+    = render 'comments/form', commentable: category
+
+  = link_to 'Add comment', '#', class: 'button-category-comment', data: { category_id: category.id }
 
 .post_errors
   = render 'shared/errors', resource: @post
