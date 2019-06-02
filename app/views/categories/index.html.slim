@@ -1,0 +1,16 @@
+.row
+  .col-2
+  .col-8
+    h1
+      = "List categories:"
+    .float-right
+      = link_to 'Add category', new_category_path, class: 'btn btn-primary'
+
+    table.table
+      thead.thead-light
+        tr
+          th
+            = "Name"
+          th
+            = "Actions"
+      = render @categories
