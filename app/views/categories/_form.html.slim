@@ -1,0 +1,8 @@
+= form_with model: @category, **form_params do |f|
+  p
+    = f.label :name
+    = f.text_field :name, class: 'form-control', rows: 4
+  p
+    = f.label :description
+    = f.text_area :description, class: 'form-control', rows: 8
+  = f.submit 'Save'
