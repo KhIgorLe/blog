@@ -1,0 +1,6 @@
+<% if post.errors.present? %>
+  $('.post_errors').html('<%= render 'shared/errors', resource: post %>');
+<% else %>
+$('.posts').append('<%= j render post %>');
+$('#post_name, #post_content').val('');
+<% end %>

@@ -1,4 +1,21 @@
-h1
-  = @category.name
+h1 = "Category:"
 p
-  = @category.description
+  = "Name: #{category.name}"
+p
+  = "Description: #{category.description}"
+
+.post_errors
+  = render 'shared/errors', resource: @post
+
+.posts
+  h1 = "Posts list:"
+  = render category.posts
+
+= form_with model: [category, @post], class: 'new-post' do |f|
+  p
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  p
+    = f.label :content
+    = f.text_area :content, class: 'form-control'
+  = f.submit 'Add post'
