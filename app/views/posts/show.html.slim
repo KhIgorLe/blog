@@ -5,6 +5,9 @@
   p
     = "Content: #{post.content}"
 
+  - if post.file.attached?
+    = image_tag post.file, size: "300x300"
+
   .comment_errors
     = render 'shared/errors', resource: @comment
 

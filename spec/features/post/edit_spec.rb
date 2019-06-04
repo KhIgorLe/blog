@@ -33,7 +33,9 @@ feature 'any user can edit post', %q{
 
       within '.post_errors' do
         expect(page).to have_content "Name can't be blank"
-        expect(page).to have_content "Name is invalid"
+        expect(page).to have_content 'name must be at least two words with two letters in each word, ' \
+                       'the first word with a capital letter, the rest with a small one. ' \
+                       'Dot at the end.'
       end
     end
   end

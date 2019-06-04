@@ -16,6 +16,7 @@ feature 'User can create comments for category', %q{
       within '.post' do
         click_on 'Add comment'
         fill_in 'Comment body', with: 'it comment'
+        fill_in 'Comment author', with: 'It Author.'
         click_on 'Save comment'
 
         expect(page).to_not have_selector "#Add-Post-Comment-#{post.id}"
@@ -23,6 +24,7 @@ feature 'User can create comments for category', %q{
 
       within '.post-comments' do
         expect(page).to have_content 'it comment'
+        expect(page).to have_content 'It Author.'
       end
     end
 
@@ -33,7 +35,7 @@ feature 'User can create comments for category', %q{
       end
 
       within '.comment_errors' do
-        expect(page).to have_content "Body can't be blank"
+        expect(page).to have_content "Content can't be blank"
       end
     end
   end

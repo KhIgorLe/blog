@@ -1,5 +1,7 @@
 = form_with model: [commentable, commentable.comments.new], class: 'hidden',
             html: { id: "Add-#{commentable.class}-Comment-#{commentable.id}" } do |f|
-  = f.label :body, 'Comment body'
-  = f.text_area :body, class: 'form-control', rows: 8
+  = f.label :author, 'Comment author'
+  = f.text_field :author, class: 'form-control', rows: 8
+  = f.label :content, 'Comment body'
+  = f.text_area :content, class: 'form-control', rows: 8
   = f.submit 'Save comment'

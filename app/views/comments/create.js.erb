@@ -1,12 +1,8 @@
-$('.comment_errors').html('<%= render 'shared/errors', resource: @comment %>');
-<% if @comment.commentable_type == 'Category' %>
-$('.category-comments').append('<%= j render @comment %>');
-$('textarea').val('');
-$("form#Add-Category-Comment-<%= @comment.commentable.id %>").addClass('hidden');
-$('.button-category-comment').removeClass('hidden');
+<% if @comment.errors.present? %>
+  $('.comment_errors').html('<%= render 'shared/errors', resource: @comment %>');
 <% else %>
-$('.post-comments').append('<%= j render @comment %>');
-$('textarea').val('');
-$("form#Add-Post-Comment-<%= @comment.commentable.id %>").addClass('hidden');
-$('.button-post-comment').removeClass('hidden');
+  $(".<%= @comment.commentable_type.downcase %>-comments").append('<%= j render @comment %>');
+  $('textarea').val('');
+  $("form#Add-<%= @comment.commentable_type %>-Comment-<%= @comment.commentable.id %>").addClass('hidden');
+  $(".button-<%= @comment.commentable_type.downcase %>-comment").removeClass('hidden');
 <% end %>

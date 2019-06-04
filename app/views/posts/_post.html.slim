@@ -1,6 +1,9 @@
 - if post.persisted?
   li[id="post_#{post.id}"]
     => link_to post.name, post_path(post)
+    p
+      - if post.file.attached?
+        = image_tag post.file, size: "100x100"
     => link_to 'Delete post', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, remote: true
     = link_to 'Edit post', '#', class: 'edit-post-link', data: { post_id: post.id }
 
@@ -11,4 +14,6 @@
       p
         = f.label :content
         = f.text_area :content, class: 'form-control'
+        = f.label :file
+        = f.file_field :file
       = f.submit 'Save post'

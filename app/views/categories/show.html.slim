@@ -29,4 +29,6 @@
   p
     = f.label :content
     = f.text_area :content, class: 'form-control'
+    = f.label :file
+    = f.file_field :file
   = f.submit 'Add post'
