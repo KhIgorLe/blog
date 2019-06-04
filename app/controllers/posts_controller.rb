@@ -32,6 +32,6 @@ class PostsController < ApplicationController
   helper_method :post, :category
 
   def post_params
-    params.require(:post).permit(:name, :content)
+    params.require(:post).permit(:name, :content, :file)
   end
 end
