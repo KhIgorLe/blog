@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Gems: 
 
-Things you may want to cover:
+- Annotate - дополнительная иформация(поля моделей);
+- jquery-rails - создание и добавление постов, комментариев без перезагрузки страницы;
+- Active Storage - вложение файлов для постов;
+- active_storage_validations - валидация для размера вложенных файлов.
+- Rspec/Capybara/ShouldaMatchers/FactoryBot - тестирование
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Запуск проекта:
+- $ `git clone https://github.com/KhIgorLe/blog.git`
+- $ `bundle install`
+- $ `cp config/database.yml.sample config/database.yml`
+- $ `rails db:create`
+- $ `rails db:schema:load`
